@@ -1,0 +1,584 @@
+{
+  "slides": [
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 140,
+          "y": 133,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 144,
+          "text": "sperienza<br>",
+          "selected": false,
+          "skewY": 0
+        },
+        {
+          "TextBox": {},
+          "x": 391,
+          "y": 341,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 144,
+          "text": "perativa",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 59,
+          "y": 144,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 144,
+          "text": "<b>E</b>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 281,
+          "y": 350,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 144,
+          "text": "<b>O</b>",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/Banner2.svg",
+          "type": "Image",
+          "x": 0,
+          "y": 0,
+          "scale": {
+            "width": 1024,
+            "height": 100
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/whistle.svg",
+          "type": "Image",
+          "x": 338,
+          "y": 575,
+          "scale": {
+            "width": 265.5738712444898,
+            "height": 173.2003508116238
+          },
+          "imageType": "SVG",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 0,
+      "selected": false,
+      "active": false,
+      "x": 271,
+      "y": 427
+    },
+    {
+      "components": [
+        {
+          "src": "localhost/Logo.svg",
+          "type": "Image",
+          "x": 361.3333333333333,
+          "y": 276,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/Logo.svg",
+          "type": "Image",
+          "x": 333,
+          "y": 12,
+          "scale": {
+            "width": 340.31613564096097,
+            "height": 85.07903391024023
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "src": "localhost/cogs.svg",
+          "type": "Image",
+          "x": 341.3333333333333,
+          "y": 256,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/whistle2.svg",
+          "type": "Image",
+          "x": 8,
+          "y": 612,
+          "scale": {
+            "width": 230,
+            "height": 150
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 589,
+          "y": 528,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 64,
+          "text": "<br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 221,
+          "y": 378,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 96,
+          "text": "<b>Perchè?</b><br>",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/cogs2.svg",
+          "type": "Image",
+          "x": 747,
+          "y": 134,
+          "scale": {
+            "width": 274.53734351604896,
+            "height": 504.53538396167505
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 112,
+          "y": 265.0463217083504,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "Sviluppare un programma<br><div align=\"center\">Opensource<br></div>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 1,
+      "selected": false,
+      "active": false,
+      "x": 510,
+      "y": 429
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 130,
+          "y": 172,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 72,
+          "text": "Obbiettivi:",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 214,
+          "y": 278,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 72,
+          "text": "- Semplicità<br>- Accesibilità<br>- Processi chiari<br>- Sicurezza! <br><font face=\"Ubuntu\"></font>",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/whistle2.svg",
+          "type": "Image",
+          "x": 8,
+          "y": 612,
+          "scale": {
+            "width": 230,
+            "height": 150
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/target.svg",
+          "type": "Image",
+          "x": 857,
+          "y": 131,
+          "scale": {
+            "width": 119,
+            "height": 515
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/Logo.svg",
+          "type": "Image",
+          "x": 333,
+          "y": 12,
+          "scale": {
+            "width": 340.31613564096097,
+            "height": 85.07903391024023
+          },
+          "imageType": "SVG",
+          "selected": false
+        }
+      ],
+      "z": 10,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 2,
+      "selected": false,
+      "active": false,
+      "x": 982,
+      "y": 426
+    },
+    {
+      "components": [
+        {
+          "src": "http://localhost/Logo.svg",
+          "type": "Image",
+          "x": 333,
+          "y": 12,
+          "scale": {
+            "width": 340.31613564096097,
+            "height": 85.07903391024023
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/whistle2.svg",
+          "type": "Image",
+          "x": 8,
+          "y": 612,
+          "scale": {
+            "width": 230,
+            "height": 150
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 39,
+          "y": 139,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 72,
+          "text": "Semplicità:",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 119,
+          "y": 296,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 64,
+          "text": "- Ridurre le interazioni<br>- Funzioni riconoscibili<br>- Messaggi chiari<br>- Single Sign On",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/simple.svg",
+          "type": "Image",
+          "x": 811,
+          "y": 137,
+          "scale": {
+            "width": 194,
+            "height": 566
+          },
+          "imageType": "SVG",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0.79,
+      "index": 3,
+      "selected": false,
+      "active": false,
+      "x": 1180,
+      "y": 313
+    },
+    {
+      "components": [
+        {
+          "src": "http://localhost/whistle2.svg",
+          "type": "Image",
+          "x": 8,
+          "y": 612,
+          "scale": {
+            "width": 230,
+            "height": 150
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/Logo.svg",
+          "type": "Image",
+          "x": 333,
+          "y": 12,
+          "scale": {
+            "width": 340.31613564096097,
+            "height": 85.07903391024023
+          },
+          "imageType": "SVG",
+          "selected": true
+        },
+        {
+          "src": "http://localhost/whistle2.svg",
+          "type": "Image",
+          "x": 8,
+          "y": 612,
+          "scale": {
+            "width": 230,
+            "height": 150
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 42,
+          "y": 127,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 64,
+          "text": "Accessibilità:",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/access.svg",
+          "type": "Image",
+          "x": 870,
+          "y": 141,
+          "scale": {
+            "width": 131,
+            "height": 579
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 174,
+          "y": 282,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 64,
+          "text": "- Fruibile via browser<br>- Responsive design<br>- Retrocompatibile<br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 2.36,
+      "index": 4,
+      "selected": false,
+      "active": false,
+      "x": 1180,
+      "y": 553
+    },
+    {
+      "components": [
+        {
+          "src": "http://localhost/whistle2.svg",
+          "type": "Image",
+          "x": 8,
+          "y": 612,
+          "scale": {
+            "width": 230,
+            "height": 150
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "src": "http://localhost/Logo.svg",
+          "type": "Image",
+          "x": 333,
+          "y": 12,
+          "scale": {
+            "width": 340.31613564096097,
+            "height": 85.07903391024023
+          },
+          "imageType": "SVG",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 42,
+          "y": 127,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 64,
+          "text": "Processi:",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 80,
+          "y": 262,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "- Un regolamento adatto al media<br>- Definizione dei Ruoli<br>- Definizione dei flussi dei dati<br>- Definizione dei doveri<br>",
+          "selected": true
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 5,
+      "selected": true,
+      "active": true,
+      "x": 1580,
+      "y": 180
+    }
+  ],
+  "activeSlide": {
+    "components": [
+      {
+        "src": "http://localhost/whistle2.svg",
+        "type": "Image",
+        "x": 8,
+        "y": 612,
+        "scale": {
+          "width": 230,
+          "height": 150
+        },
+        "imageType": "SVG",
+        "selected": false
+      },
+      {
+        "src": "http://localhost/Logo.svg",
+        "type": "Image",
+        "x": 333,
+        "y": 12,
+        "scale": {
+          "width": 340.31613564096097,
+          "height": 85.07903391024023
+        },
+        "imageType": "SVG",
+        "selected": false
+      },
+      {
+        "TextBox": {},
+        "x": 42,
+        "y": 127,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "size": 64,
+        "text": "Processi:",
+        "selected": false
+      },
+      {
+        "TextBox": {},
+        "x": 80,
+        "y": 262,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "size": 48,
+        "text": "- Un regolamento adatto al media<br>- Definizione dei Ruoli<br>- Definizione dei flussi dei dati<br>- Definizione dei doveri<br>",
+        "selected": true
+      }
+    ],
+    "z": 0,
+    "impScale": 3,
+    "rotateX": 0,
+    "rotateY": 0,
+    "rotateZ": 0,
+    "index": 5,
+    "selected": true,
+    "active": true,
+    "x": 1580,
+    "y": 180
+  },
+  "fileName": "Wistle",
+  "surface": "bg-surf-grad-light",
+  "deckVersion": "1.0",
+  "customBackgrounds": {
+    "bgs": []
+  },
+  "overviewX": 925.5,
+  "overviewY": 366.5
+}

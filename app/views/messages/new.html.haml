@@ -1,0 +1,9 @@
+%h4.text-center= t 'message.new.title'
+= simple_form_for @message, url: messages_path, method: :post, html: {multipart: true} do |f|
+  .panel
+    = f.input :body, as: :text, input_html: {class: 'tinymce'}
+    %br
+    %h6.text-center= link_to fa_icon('plus', text: t('attachment.new.title')), '#', id: 'add-attachemnt'
+    = f.simple_fields_for :attachments_attributes do |attachment|
+      #attachments.row
+  .text-center= f.button :button, fa_icon('envelope', text: 'Invia segnalazione'), class: 'medium radius success'

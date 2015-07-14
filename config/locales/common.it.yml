@@ -1,0 +1,58 @@
+it:
+  title: Whistle.I
+
+  help:
+    book: Manuali
+    user: Manuale utente
+    committee: Manuale comitato
+    giri: Richiedi assistenza
+    changelog: Changelog
+    glossary: Glossario
+
+  user:
+    index:
+      title: Gestisci utenti
+    status:
+      committee: Comitato
+      base: Utente base
+
+
+  message:
+    admin:
+      title: Comitato
+    index:
+      title: Gestisci segnalazioni
+    statistics:
+      title: Statistiche segnalazioni
+    new:
+      title: Nuova segnalazione
+    report:
+      title: Stato richieste
+    show:
+      title: Dettaglio segnalazione
+    status:
+      message_new: Pendente
+      message_active: In lavorazione
+      message_closed: Chiusa
+  attachment:
+    title: Allegati
+    new:
+      title: Aggiungi nuovo allegato
+
+  log:
+    user_status: "l`utente %{author} ha reso %{user} %{status}"
+    user_log: "l`utente %{author} ha visualizzato i log di %{user}"
+    message:
+      show: 'l`utente ha visualizzato i dati generali'
+      body: 'l`utente ha visualizzato il messaggio'
+      detail: 'l`utente ha visualizzato i dati riservati'
+      update: "nuovo stato: %{status}"
+
+  flash:
+    actions:
+      create:
+        alert_html: "<strong>OH NOES!</strong> You did it wrong!"
+    message:
+      create:
+        notice: "La sua segnalazione e` stata inviata con successo. La segnalazione e` stata criptata per essere accessibile unicamente dal comitato."
+        alert: "L'inserimento della segnalazione e` fallito. Verificare che il campo 'testo segnalazione' sia stato compilato"

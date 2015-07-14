@@ -1,0 +1,35 @@
+%h4.text-center Glossario
+
+%table
+  %thead
+    %tr
+      %th Parola
+      %th Spiegazione
+  %tbody
+    %tr
+      %td.title#comitato Comitato Anticorruzione
+      %td.body 
+    %tr
+      %td.title#crittografia Crittografia
+      %td.body <p>La crittografia è la branca della crittologia che tratta delle "scritture nascoste", ovvero dei metodi per rendere un messaggio "offuscato" in modo da non essere comprensibile/intelligibile a persone non autorizzate a leggerlo.<br/>Un tale messaggio si chiama comunemente crittogramma e le tecniche usate tecniche di cifratura.(Fonte wikipedia)</p>
+    %tr
+      %td.title#asimmetrica Crittografia asimmetrica
+      %td.body 
+        %p La crittografia asimmetrica, conosciuta anche come crittografia a coppia di chiavi, crittografia a chiave pubblica/privata o anche solo crittografia a chiave pubblica è un tipo di crittografia dove, come si evince dal nome, ad ogni attore coinvolto nella comunicazione è associata una coppia di chiavi:
+        %ul
+          %li la chiave pubblica, che deve essere distribuita;
+          %li la chiave privata, appunto personale e segreta;
+        %p evitando così qualunque problema connesso alla necessità di uno scambio in modo sicuro dell'unica chiave utile alla cifratura/decifratura presente invece nella crittografia simmetrica. Il meccanismo si basa sul fatto che, se con una delle due chiavi si cifra (o codifica) un messaggio, allora quest'ultimo sarà decifrato solo con l'altra.
+    %tr
+      %td.title#simmetrica Crittografia simmetrica
+      %td.body <p>Uno schema di crittografia simmetrica è caratterizzato dalla proprietà che, data la chiave di cifratura "e", sia facilmente calcolabile la chiave di decifratura "d". Un caso particolare, che è quello quasi sempre utilizzato nella pratica, è l'utilizzo di una stessa chiave condivisa sia per l'operazione di cifratura che per quella di decifratura.</p>
+    %tr
+      %td.title#rsa RSA
+      %td.body <p>In crittografia la sigla RSA indica un algoritmo di crittografia asimmetrica, utilizzabile per cifrare o firmare informazioni.</p> <p>Nel portale 'Whistle.I' vengono usate chiavi RSA da 2048b.</p>
+    %tr
+      %td.title#aes AES 
+      %td.body
+        %p In crittografia, l'Advanced Encryption Standard (AES), conosciuto anche come Rijndael, di cui più propriamente è una specifica implementazione, è un algoritmo di cifratura a blocchi utilizzato come standard dal governo degli Stati Uniti d'America.
+        %p Nel portale 'Wistle' la cifratura AES viene utilizzata per criptare tutti i messaggi inseriti con chiavi lunghe 1024b, in'oltre AES viene utilizzata per civrare le chiavi privte RSA dei membri del comitato.
+
+    

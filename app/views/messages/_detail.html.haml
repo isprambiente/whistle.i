@@ -1,0 +1,16 @@
+- if @active == 3
+  %h5 Messaggio del #{l @message.created_at}
+  .msg= @destination.detail
+- else
+  .alert-box.alert.radius
+    <strong>ATTENZIONE</strong>: L'accesso ai dati del mittente puo` essere fatto unicamente su richiesta delle forze dell'ordine ed in accordo con tutto il comitato! Per accedere ai dati bisogna inserire la propria password di decriptazione e va motivato l'accesso nel campo note. 
+    %br
+    <strong>AVVISO</strong>: Una email di segnalazione viene inviata ad ogni tentativo di accesso.
+  %br
+
+  = simple_form_for @destination, url: detail_message_path(@message), method: :post do |f|
+    .row
+      .large-12.columns= f.input :note, as: :text, input_html: {class: 'tinymce'}
+      %hr
+      .medium-9.small-10.columns= f.input_field :password, placeholder: 'Chiave segreta'
+      .medium-3.small-2.columns= f.button :button, fa_icon('share', text: 'invia'), class: 'postfix', data: {confirm: 'Attenzione confermi l\'accesso di dati?'}

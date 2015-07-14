@@ -1,0 +1,28 @@
+- if [2,3].include? @active
+  %h5 Messaggio del #{l @message.created_at}
+  .msg= @destination.body.html_safe
+
+  - unless @destination.attachments.blank?
+    #attachments
+      %table
+        %thead
+          %th Allegati
+          %th Password RSA
+          %th.nop
+        %tbody
+          - @destination.attachments.each do |a|
+            = simple_form_for a, url: attachment_message_path(@message, a), method: :post do |f|
+              %tr
+                %td= a.file_file_name
+                %td.form= f.input_field :password
+                %td.nop
+                  = f.button :button, fa_icon('download')
+
+- else
+  .alert-box.warning.radius{ data: {alert: ''}}
+    <strong>ATTENZIONE</strong>: Per accedere al messaggio e` necessario inserire la propria chiave di decriptazione. Tutti gli accessi effettuate vengono memorizzati e sono visibili da tutti gli appartenenti al comitato.
+  %br
+  = simple_form_for :destination, url: body_message_path(@message) do |f|
+    .row
+      .medium-9.small-10.columns= f.input_field :password, placeholder: 'Chiave segreta'
+      .medium-3.small-2.columns= f.button :button, fa_icon('share', text: 'invia'), class: 'postfix'

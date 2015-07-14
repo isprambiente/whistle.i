@@ -1,0 +1,12 @@
+%ul
+  %li Segnalazione numero <strong>#{@message.id}</strong>
+  %li Segnalazione del <strong>#{l @message.created_at.to_date}</strong>
+  %li Segnalazione eseguita alle <strong>#{l @message.created_at.to_time}</strong>
+  %li
+    Stato segnalazione: <strong class='fa-#{@message.status}'>#{fa_icon 'flag', text: t(@message.status, scope: 'message.status')}</strong>
+    - if @message.status == 'message_active'
+      .right
+        Aggiorna stato:
+        = link_to t('message.status.message_closed'), message_path(@message, status: 'message_closed'), method: :patch, class: 'secondary', confirm: 'Confermi operazione?'
+  - if @destination.blank?
+    %li.alert Attenzione, il tuo utente non ha ricevuno ricevuto copia di questo messaggio.

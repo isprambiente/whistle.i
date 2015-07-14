@@ -1,0 +1,34 @@
+.hide-on-print
+  %nav#nav-first.top-bar{data: {topbar: true}, role: "navigation"}
+    %ul.title-area
+      %li.name
+        %h1.primary= link_to([Settings.name, 'Whistle.I'].join(' | '), root_path, data: {no_turbolink: true})
+      %li.toggle-topbar.menu-icon <a href=""><span>Menu</span></a>
+    %section.top-bar-section
+      %ul.right
+        - if current_user.committee?
+          = content_tag :li, link_to( fa_icon('edit', text: current_user.label), current_user)
+        -else
+          = content_tag :li, link_to( current_user.label, root_path)
+        = content_tag :li, link_to( fa_icon('sign-out', text: 'Logout'), destroy_user_session_path, method: :delete)
+      %ul.left
+        %li= link_to( fa_icon('home', text: 'Home'), root_path, data: {no_turbolink: true})
+        %li= link_to( fa_icon('list', text: 'Stato richieste'), report_path)
+        - if current_user.committee?
+          %li.has-dropdown
+            = link_to( fa_icon('gear', text: t('message.admin.title')), messages_path)
+            %ul.dropdown
+              %li= link_to( fa_icon('gear', text: t('message.index.title')), messages_path)
+              %li= link_to( fa_icon('gear', text: t('message.statistics.title')), messages_path)
+              %li= link_to( fa_icon('gear', text: t('user.index.title')), users_path)
+        %li.has-dropdown
+          = link_to( fa_icon('question-circle', text: 'Help'), '#')
+          %ul.dropdown
+            %li.has-dropdown
+              = link_to( fa_icon('book', text: t('book', scope: 'help')), '#')
+              %ul.dropdown
+                %li= link_to( fa_icon('book', text: t('user', scope: 'help')), page_path('user_manual'))
+                %li= link_to( fa_icon('book', text: t('committee', scope: 'help')), page_path('committee_manual'))
+                %li= link_to( fa_icon('book', text: t('glossary', scope: 'help')), page_path('committee_manual'))
+            %li= link_to( fa_icon('github', text: t('changelog', scope: 'help')), page_path('changelog'))
+            %li= link_to( fa_icon("bug", text: t('help.giri')) , Settings.help_url, :target => "_blank")

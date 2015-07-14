@@ -1,0 +1,71 @@
+%h4.text-center Whistle.I | Manuale utente
+
+%h5 Premessa
+%p Il portale <b>Whistle.I</b> nasce con l'obiettivo di permettere agli utenti di inviare segnalazioni al '<a href='/pages/glossary#comitato'>Comitato anticorruzione</a>' nella massima sicurezza e con la garanzia che nessuno, ad eccezione del comitato, possa leggere i messaggi o gli allegati inviati al sistema.
+%p Sfruttando la crittografia <a href='/pages/glossary#aes'>AES</a> e <a href='/pages/glossary#rsa'>RSA</a> tutti i messaggi e gli allegati vengono archiviati in modo sicuro, affinche nessuno, neanche gli amministratori del server, possano accedere illecitamente ai messaggi.
+
+%h5 Accesso a Whistle.I
+%p Per accedere al portale <b>Whistle.I</b> é necessario autenticarsi. Tale procedura è necessaria in quanto, nel caso le autorità giudiziarie lo richiedessero, il <a href='/pages/glossary#comitato'>Comitato</a> deve poter estrarre i dati del autore del messaggio.
+%p Per maggiori dettagli sulla procedura che deve eseguire il <a href='/pages/glossary#comitato'>Comitato</a> per accedere ai dati dell'autore si rimanda al <a href='/pages/committee_manual'>Manuale del comitato</a>.
+
+%h5 Struttura della pagina
+%p Di seguito viene riportata la struttura del layout del sito e tutte le funzioni comuni alle pagine.
+.row
+  .large-8.large-centered.columns.text-centered= image_tag 'page_1.png'
+
+.row
+  .large-6.columns
+    %ul
+      %li.headings Sezioni
+      %li <b>A: Menu principale |</b> Contiene i link pemanenti e le informazioni sulla pagina corrente;
+      %li <b>B: Colonna destra |</b> Contiene i link alla manualistica e, se presenti, le funzioni aggiuntive inerenti alla pagina;
+      %li <b>C: Corpo |</b> Contiene il testo effettivo della pagina
+
+  .large-6.columns
+    %ul
+      %li.headings Funzioni
+      %li <b>1: Link 'Home Page' |</b> Ti fa ritornare alla pagina iniziale
+      %li <b>2: Link 'Help' |</b> Mostra i link alla manualistica ed alla richiesta di assistenza
+      %li <b>3: Nome utente |</b> Mostra il nome dell'utente attualmente connesso.
+      %li <b>4: Link 'Logout' |</b> Disconnette l'utente corrente
+      %li <b>5: Breadcrumb |</b> Mostra la posizione attuale all'interno del sito
+      %li <b>6: Menu manualistica |</b> Contiene una copia dei link ai manuali sempre a portata di mano
+      %li <b>7: Link 'Manuale utente' |</b> Porta alla pagina contenente il manuale d'uso per utente
+      %li <b>8: Link 'Manuale comitato' |</b> Porta alla pagina contenente il manuale d'uso per il comitato
+      %li <b>9: Link 'Glossario' |</b> Porta alla pagina contenente il glossario dei termini tecnici utilizzati nella manualistica
+      %li <b>10: Link 'Richiedi assistenza' |</b> Contiene il link alla pagina di richiesta assistenza
+
+
+%h5.text-center Invio di una segnalazione
+.row
+  .large-8.large-centered.columns.text-centered= image_tag 'message.png' 
+%p Tutto il processo di invio di una segnalazione è stato ottimizzato per risultare semplice ed eseguibile direttamente nella Home Page. Il form é suddiviso in quattro parti:
+%ol
+  %li Box testo (campo obbligatorio)
+  %li Link per aggiungere nuovi allegati
+  %li Selezione allegato
+  %li Bottone di invio e conferma segnalazione
+%p Per inviare una segnalazione è necessario inserire almeno una descrizione, è possibile corredare la descrizione con un numero arbitrario di allegati. Per aggiungere nuovi allegati è sufficente cliccare sul link 'Aggiungi nuovo allegato'. Infine per inviare il messaggio bisogna cliccare sul bottone 'Crea segnalazione' e confermare l'invio.
+
+%h5.text-center Processo di invio, di crittazione e di decrittazione delle segnalazioni
+.row
+  .large-8.medium-7.columns
+    %p Dopo aver confermato la segnalazione inizia il processo di invio dei messaggi e di crittazione degli stessi. Il processo di invio include quattro modelli che si scambiano i dati:
+    %ul
+      %li <b>Message:</b> che contiene unicamente data e anno di invio del messaggio ed uno stato (funzionale al comitato)
+      %li <b>Destination: </b> che contiene una copia del testo del messaggio per ogni membro del comitato. al momento 
+      %li <b>Attachment: </b> che contiene la posizione e le informazioni degli allegati
+      %li <b>User: </b> che contiene le autorizzazioni dell'utente e le chiavi publiche e private dei membri del comitato.
+
+    %p Il processo di invio inizia con la creazione del messaggio. Il messaggio memorizza data e anno di invio, genera un identificativo unico di riconoscimento ed infine consegna alle destinazioni il corpo del messaggio e gli allegati.
+    %p Ogni destinazione al momento della creazione genera una chiave <a href='/pages/glossary#aes'>AES</a> con cui crittare il messaggio, ed una per ogni allegato. Infine le chiavi <a href='/pages/glossary#aes'>AES</a> vengono crittate tramite la chiave <a href='/pages/glossary#rsa'>RSA</a> pubblica del membro del comitato destinatatio. Infine nel database vengono memorizzate unicamente i dati crittati e la chiave di decrittazione <a href='/pages/glossary#aes'>AES</a> crittata <a href='/pages/glossary#rsa'>RSA</a>
+    %p Se anche un solo passaggio del processo di invio fallisce tutto l'invio viene annullato e viene consegnato un messaggio di errore all'utente.
+    %p Le chiavi private dei membri del comitato sono crittate triple DES e la chiave per decrittarle non vengono mai memorizzata nel sistema. I membri del comitato devono inserire la propria chiave ad ogni lettura di una segnalazione o di un allegato.
+    %p Il processo di decrittazione parte dal membro del comitato che, richiedendo l'accesso ad una segnalazione, inserisce la propria chiave DES, che decritta la chiave privata RSA, che decritta la chiave AES del messaggio, che decritta il messaggio.
+    %p Questo processo, che puo` sembrare complesso, serve a garantire una alta velocita` di elaborazione del dato, in quanto la cifratura AES risulta notevolmente piu` veloce e leggera della RSA, ed un alto standard di sicurezza, in quanto la cifratura RSA permette la cifratura delle chiavi AES senza conoscerne la chiave di decrittazione. La sicurezza arriva a garantire che nemmeno l'amministratore del sistema o un malintenzionato che accedesse con pieni diritti alla macchina possa leggere il contenuto dei messaggi decrittato.
+    %p Infine per evitare un qualunque abuso da parte degli amministratori del sistema o la modifica del sistema stesso, tutte le operazioni eseguite dall'amministratore vengono inviate e memorizzate su una macchina terza non gestita dagli amministratore del server WHISTLE.
+
+  .large-4.medium-5.columns.text-center= link_to image_tag('models_complete.jpg'), asset_path('models_complete.jpg')
+
+%h5.text-center Note finali
+%p Per ulteriori informiazioni e` possibile consultare il <a href='/pages/committee_manual'>Manuale del comitato</a>, il <a href='http://localhost:3000/pages/glossary'>Glossario</a> con approfondimenti sui termini tecnici, visualizzare il <a html='https://github.com/isprambiente/whistle.i'>codice sorgente</a> e partecipare allo sviluppo del progetto all'indirizzo <a html='https://github.com/isprambiente/whistle.i'>https://github.com/isprambiente/whistle.i</a>.

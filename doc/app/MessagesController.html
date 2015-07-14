@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class MessagesController - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-attachment">#attachment</a>
+    
+    <li ><a href="#method-i-body">#body</a>
+    
+    <li ><a href="#method-i-create">#create</a>
+    
+    <li ><a href="#method-i-detail">#detail</a>
+    
+    <li ><a href="#method-i-index">#index</a>
+    
+    <li ><a href="#method-i-list">#list</a>
+    
+    <li ><a href="#method-i-new">#new</a>
+    
+    <li ><a href="#method-i-show">#show</a>
+    
+    <li ><a href="#method-i-update">#update</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-MessagesController">
+  <h1 id="class-MessagesController" class="class">
+    class MessagesController
+  </h1>
+
+  <section class="description">
+    
+<p>This controller manage the message&#39;s model</p>
+<ul><li>
+<p>standard user can access only to :new and :create action</p>
+</li><li>
+<p>the committee can access everywhere</p>
+</li></ul>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-attachment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attachment</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>POST /message/1/attachment/1 accessible only from committee users and only
+if the user have received a message copy This view receive the user key
+password and decrypt a message&#39;s attachment</p>
+          
+          
+
+          
+          <div class="method-source-code" id="attachment-source">
+            <pre><span class="ruby-comment"># File app/controllers/messages_controller.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attachment</span>
+  <span class="ruby-ivar">@attachment</span> = <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">attachments</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:attachment_id</span>])
+  <span class="ruby-identifier">send_data</span> <span class="ruby-ivar">@attachment</span>.<span class="ruby-identifier">file_streaming</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:attachment</span>][<span class="ruby-value">:password</span>]),
+    <span class="ruby-identifier">filename</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@attachment</span>.<span class="ruby-identifier">file_file_name</span>,
+    <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@attachment</span>.<span class="ruby-identifier">file_content_type</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-body" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">body</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>POST /message/1/body accessible only from committee users and only if the
+user have received a message copy This view receive the user key password
+and decrypt the message body</p>
+          
+          
+
+          
+          <div class="method-source-code" id="body-source">
+            <pre><span class="ruby-comment"># File app/controllers/messages_controller.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">body</span>
+  <span class="ruby-ivar">@active</span> = <span class="ruby-value">2</span>
+  <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">password</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:destination</span>][<span class="ruby-value">:password</span>]
+  <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">readed</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">readed?</span>
+  <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">readed_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">readed_at</span>.<span class="ruby-identifier">present?</span>
+  <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-value">:show</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>POST /messages accessible from any authenticater users this view create a
+new message</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/messages_controller.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+  <span class="ruby-ivar">@title</span> = <span class="ruby-string">&#39;Nuova segnalazione&#39;</span>
+  <span class="ruby-ivar">@message</span> = <span class="ruby-constant">Message</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message_params</span>)
+  <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">detail</span> = [<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">label</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">email</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">username</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;flash.message.create.notice&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-value">:new</span>, <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;flash.message.create.alert&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-detail" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">detail</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>POST /message/1/detail accessible only from committee users and only if the
+user have received a message copy This view receive the user key password
+and decrypt the sender details</p>
+          
+          
+
+          
+          <div class="method-source-code" id="detail-source">
+            <pre><span class="ruby-comment"># File app/controllers/messages_controller.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">detail</span>
+  <span class="ruby-ivar">@active</span> = <span class="ruby-value">3</span>
+  <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">password</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:destination</span>][<span class="ruby-value">:password</span>]
+  <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">note</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:destination</span>][<span class="ruby-value">:note</span>]
+  <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">detailed</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">detailed_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">detailed_at</span>.<span class="ruby-identifier">present?</span>
+  <span class="ruby-ivar">@destination</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-value">:show</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /messages accessible only from committee users this view contain the
+messages list with the status informations</p>
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/messages_controller.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-ivar">@title</span> = <span class="ruby-string">&#39;Gestione messaggi&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /messages/list.json</p>
+          
+          
+
+          
+          <div class="method-source-code" id="list-source">
+            <pre><span class="ruby-comment"># File app/controllers/messages_controller.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>
+  <span class="ruby-ivar">@messages</span> = <span class="ruby-constant">Message</span>.<span class="ruby-identifier">all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /messages/new accessible from any authenticated users this is the root
+path This view contain the form for create a new message</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/messages_controller.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@title</span> = <span class="ruby-string">&#39;Nuova segnalazione&#39;</span>
+  <span class="ruby-ivar">@message</span> = <span class="ruby-constant">Message</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /messages/1 accessible only from committee users This view contain the
+message information that not require decryption</p>
+          
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/messages_controller.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+  <span class="ruby-ivar">@active</span> = <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>PATCH/PUT /messages/1 accessible only from committee users this view change
+the status of a message</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/messages_controller.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-ivar">@active</span> = <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:status</span>])
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-value">:show</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

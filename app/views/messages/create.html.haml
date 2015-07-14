@@ -1,0 +1,10 @@
+.panel
+  %h4.text-center La segnalazione n. #{@message.id} e` stata inviata con successo!
+  %p Potra` verificare lo stato di lvorazione della segnalazione dalla pagina #{link_to 'Stato richieste', report_path} accessibile dal menu principale del portale Whistle.I
+  %p <b>Il codice identificativo della segnalazione viene mostrato al segnalante esclusivamente nel presente messaggio</b>. Successivamente non sarà possibile richiedere il codice in nessun modo.
+  %p ATTENZIONE! Nella pagina non e` riportato nessun dato della segnalazione ad eccezione del codice e dello stato. Per riconoscere la sua segnalazione dovra utilizzare il codice.
+
+  %h4.text-center Codice segnalazione #{@message.id} 
+
+%p.text-center
+  = link_to fa_icon('plus', text: 'Nuova segnalazione'), root_path, class: 'button radius'

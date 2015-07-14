@@ -1,0 +1,27 @@
+%ul.tabs{ data: {tab: ''}}
+  %li.tab-title{class: ('active' if @active == 1)}= link_to 'Dati generali', "#message_general"
+  - if @destination.present?
+    %li.tab-title{class: ('active' if @active == 2)}= link_to 'Messaggio', "#message_body"
+    %li.tab-title{class: ('active' if @active == 3)}= link_to 'Dati mittente', "#message_detail"
+.tabs-content
+  #message_general.content{class: ('active' if @active == 1)}= render 'general'
+  - if @destination.present?
+    #message_body.content{class: ('active' if @active == 2)}= render 'body'
+    #message_detail.content{class: ('active' if @active == 3)}= render 'detail'
+
+%table#access
+  %caption <strong>Accessi</strong>
+  %thead
+    %tr
+      %th Consegnato a
+      %th Lettura messaggio
+      %th Lettura dati
+  %tbody
+    - @message.destinations.each do |destination|
+      %tr{id: "destination_#{destination.id}"}
+        %td= link_to destination.user.label, destination.user
+        %td.readed_at= l(destination.readed_at) if destination.readed?
+        %td.detailed_at= l(destination.detailed_at) if destination.detailed?
+
+- content_for :left do
+  = link_to fa_icon('chevron-left', text: 'Segnalazioni'), messages_path, class: 'button small expand'

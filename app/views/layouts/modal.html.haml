@@ -1,0 +1,23 @@
+!!! 5
+%html{lang: "it"}
+  = render 'modal_head'
+
+  %body
+    %nav#modal_nav.top-bar
+      - unless @title.blank?
+        %ul.title-area
+          %li.name
+            %h1.primary= link_to( @title, '#')
+      %li.toggle-topbar.menu-icon <a href=""><span>Menu</span></a>
+      %section.top-bar-section
+        %ul.right
+          - unless @menu.blank?
+            - @menu.compact.each do |menu|
+              %li.divider 
+              %li= link_to fa_icon(menu[:fa], text: menu[:text]), menu[:to], remote: true
+          %li.divider
+          %li= link_to fa_icon('times'), '#', class: 'close-reveal-modal'
+    #modal-body.row
+      .large-12.columns= yield
+    .javascript
+      = yield :footer

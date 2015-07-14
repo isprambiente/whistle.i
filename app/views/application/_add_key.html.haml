@@ -1,0 +1,25 @@
+- if current_user.committee? && current_user.priv.blank?
+  #userModal.reveal-modal{ data: {reveal: true}}
+    %nav#modal_nav.top-bar
+      %ul.title-area
+        %li.name
+          %h1.primary= link_to fa_icon('user-secret', text: 'Generazione chiave RSA'), '#'
+
+    = simple_form_for current_user, url: add_key_users_path, method: :post do |f|
+      .panel
+        %h5.text-center Inserisci la password per generare la chiave
+        .row
+          .small-5.columns= f.input :password
+          .small-5.columns= f.input :password_confirmation
+          .small-2.columns
+            %label Conferma
+            = f.button :button, fa_icon('check'), confirm: 'Attenzione! confermi la tua password?', class: 'small expand'
+      .row
+        .large-12.columns.alert-box.warning.radius
+          RSA e` una sistema di criptazione asimmetrica composto da due chiavi. La chiave publica puo` soltanto criptare i dati, la chiave privata invece puo` decriptarli.
+          %br
+          Ogni membro del comitato avra` una sua chiave RSA personale che verra` utilizzata per criptare i dati a lui destinati.
+          %br
+          Per impedire che le chiavi private vengano usate senza autorizzazione, vengono nuovamente criptate con il sistema AES, utilizzando la password che state inserendo come chiave di decriptazione.
+          %br
+          <strong>ATTENZIONE</strong> non e` possibile decriptare la chiave privata senza conoscere la password AES. Nel caso di perdita della password tutti i messaggi consegnati saranno irrecuperabili.

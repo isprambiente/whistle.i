@@ -1,0 +1,15 @@
+%h5.section.text-center Stato richieste
+%p In questa pagina sono riportati gli stati di lavorazione di tutte le segnalazioni inviate tramite 'Whistle.I'. Di ogni segnalazione viene riportato il codice identificativo e lo stato.
+%p Per verificare lo stato di lavorazione di una segnalazione è indispensabile conoscere il codice identificativo della segnalazione. 
+%p Il codice identificativo della segnalazione viene mostrato al segnalante alla fine del processo di invio. Dopo l'invio non sarà possibile richiedere il codice in nessun modo.
+
+%table
+  %thead
+    %tr
+      %th.code Codice
+      %th stato
+  %tbody
+    - @messages.each do |m|
+      %tr
+        %td.code= m.id
+        %td= t m.status, scope: 'message.status'

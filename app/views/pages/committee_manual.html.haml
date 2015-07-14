@@ -1,0 +1,157 @@
+%h4.text-center Whistle.I | Manuale comitato
+
+%h5 Premessa
+%p Tutti i membri del comitato hanno pari diritti all'interno del portale whistle.I. Ogni attività eseguita dal comitato viene registrata sul sistema e tutti i membri del comitato possono verificare le attivita` eseguite dai membri del comitato stesso. Ogni membro del comitato è responsabile del proprio utente ed è tenuto a mantenere sicura la propria password di accesso e la propria password del certificato <a href='/pages/glossary#rsa'>RSA</a>. In caso di compromissione di una o più password è necessario contattare il supporto informatico per cambiare le password, crittare tutti i messaggi con la nuova chiave e verificare i possibili accessi malevoli al sistema. <b>La sicurezza del sistema dipende da una gestione consapevole delle password</b>.
+
+%h5 Primo accesso e generazione della chiave <a href='/pages/glossary#rsa'>RSA</a>
+%p L'algoritmo <a href='/pages/glossary#rsa'>RSA</a> è un sistema crittografico asimmetrico basato sulla fattorizzazione di grandi numeri primi. La peculiarità di questo sistema è di funzionare con due chiavi distinte, una chiave, detta pubblica, può soltanto crittare i dati, la seconda, detta privata, può invece decifrarli. Questo sistema di crittazione ha il grande vantaggio di permettere la crittazione di dati senza avere la disponibilità della chiave per decrittarli. Per aumentare la sicurezza di questo algoritmo è possibile crittare ulteriormente la chiave privata tramite l'algoritmo <a href='/pages/glossary#aes'>AES</a>. Nel portale Whistle.I viene usata la proprietà asimmetrica dell'algoritmo <a href='/pages/glossary#rsa'>RSA</a> per rendere indecifrabili i dati archiviati.
+%p Al primo accesso di ogni membro del <a href='/pages/glossary#comitato'>Comitato Anticorruzione</a> il sistema richiederà la creazione della propria chiave <a href='/pages/glossary#rsa'>RSA</a> e verrà richiesta una password da usare come chiave <a href='/pages/glossary#des'>DES</a> percifrare la chiave privata. La password dovrà essere lunga almeno dieci caratteri e contenere numere e simboli. <b>Si sottolinea l'importanza di questa password in quanto da accesso alla chiave privata ed indirettamente a tutti i messaggi con essa crittati.</b>
+.row
+  .large-8.large-centered.columns.text-centered
+    %p.text-center= image_tag 'rsa.png'
+%p La coppia di chiavi <a href='/pages/glossary#rsa'>RSA</a> verra memorizzata nel database ed associata all'utente, mentre non verrà in nessun caso memorizzata la password per accedere alla chiave privata. In questo modo il sistema potrà crittare i dati destinati all'utente ma non potrà decrittarli senza l'intervento del destinatario in quanto privo della password usata per la chiave privata.
+.alert-box.alert <b>Attenzione</b> la perdita della password della chiave privata rende impossibile l'accesso a tutti i messaggi con essa criptati. La suddetta password non può essere recuperata in alcun modo.
+%br
+%h5 Nuove funzionalità nel menu
+%p I membri del <a href='/pages/glossary#comitato'>Comitato</a> avranno alcune funzioni aggiuntive disponibili nel menu principale:
+.row
+  .large-8.large-centered.columns.text-centered
+    %p.text-center= image_tag 'topbar_2.png'
+
+%ol
+  %li <b>Link 'home':</b> Riporta alla Home Page;
+  %li <b>Menu a cascata 'Comitato':</b> Mostra i link di gestione del comitato;
+  %li <b>Link 'Gestisci segnalazioni':</b> Porta alla pagina di gestione delle segnalazioni;
+  %li <b>Link 'Statistiche segnalazioni':</b> Porta alla pagina contenente i dati statistici delle segnalazioni;
+  %li <b>Link 'Gestisci utenti':</b> Porta alla pagina di gestione utenti;
+  %li <b>Link 'utente':</b> Porta alla pagina contenente le proprie informazioni ed i log dei propri accessi.
+
+%h5 Gestione utenti
+%p tutti membri del comitato possono gestire gli utenti e nominare altri membri del comitato. Di seguito e` riporata la pagina di gestione utenti e tutte le funzioni in essa presenti:
+.row
+  .large-8.large-centered.columns.text-centered
+    %p.text-center= image_tag 'users_1.png'
+
+%ol
+  %li <b>Record per pagina:</b> Indica il numero di linee presente nella tabella degli utenti;
+  %li <b>Ricerca:</b> Ricerca utenti;
+  %li <b>Identificativo utente:</b> un numero univoco con cui identificare un utente. Lo sfondo e` verde nel caso l'utente sia parte del comitato;
+  %li <b>Nome utente:</b> Nome completo dell'utente;  
+  %li <b>Qualifica:</b> Utente normale o membro del comitato;
+  %li <b>link ' #{fa_icon('arrows-alt')} ':</b> link ai log dell'utente (Vengono visualizzate soltanto le azioni dei membri del comitato);
+  %li <b>Cambia stato:</b> Modifica lo stato dell'utente (Utente normale o membro del comitato);
+
+  %p Ad ogni cambiamento nella composizione del comitato viene inviata un'email di avviso a tutti i membri del comitato.
+
+%h5 Log utente
+%p Gli utenti del comitato possono accedere ai propri log cliccando sul proprio nome presente nel menu principale. Inoltre e` possibile accedere ai log di un qualunque utente tramite la gestione utenti.
+%p la pagina dei log di un utente e cosi` composta:
+.row
+  .large-8.large-centered.columns.text-centered
+    %p.text-center= image_tag 'user_log_1.png'
+
+%ol
+  %li <b>data:</b> composta nel formato internazionale (anno, mese, giorno, ora, minuti, secondi, fuso orario);
+  %li <b>Link 'ID messaggio':</b> conduce alle informazioni generali del messaggio;
+  %li <b>Azione:</b> Descrizione completa dell'azione;
+
+%p le azioni memorizzate sono:
+
+%ul
+  %li Accesso ai dati generali di un messaggio
+  %li Accesso al corpo di un messaggio
+  %li Accesso ai dati riservati di un messaggio
+  %li Cambio di stato di un messaggio
+  %li Cambio di ruolo di un utente
+  %li Accesso ai log di un utente
+
+%h5 Gestione segnalazioni
+%p la pagina di gestione delle segnalazioni e` cosi` composta:
+.row
+  .large-8.large-centered.columns.text-centered
+    %p.text-center= image_tag 'messages_1.png'
+
+%ol
+  %li <b>ID:</b> Identificativo messaggio, un numero unico e sequenziale che identifica il messaggio in modo univoco, l'id e` utilizzabile come link per accedere ai dati generali del messaggio; Il colore di sfondo del campo varia in base allo stato del messaggio;
+  %li <b>Data:</b> Data e ora di invio messaggio. il campo data e` utilizzabile come link per accedere ai dati generali del messaggio;
+  %li <b>Stato:</b> Indica lo stato del messaggio;
+  %li <b>link ' #{fa_icon('arrows-alt')} ':</b> Porta alla pagina contenente i dati generali del messaggio;
+
+%h5 Informazioni generali messaggio
+%p Tramite la pagina di gestione e` possibile accedere alle informazioni generali del messaggio. Da questa pagina e` possibile visualizzare le informazioni generali (data, stato ed accessi). Per visualizzare il contenuto del messaggio o i dati del mittente sara`necessario passare alle apposite viste ed inserire la password della propria chiave privata RSA.
+%p La pagina delle inromazioni generali del messaggio e` cosi` composta:
+.row
+  .large-8.large-centered.columns.text-centered
+    %p.text-center= image_tag 'message_1.png'
+%ol
+  %li <b>link 'Dati generali':</b> Visualizza i dati generali del messaggio;
+  %li <b>Messaggio:</b> Passa al form di accesso per la visualizzazione del corpo del messaggio;
+  %li <b>Dati mittente:</b> Passa al form di accesso per la visualizzazione dei dati del mittente e delle altre informazioni accessibili solo a seguito di richiesta delle forze dell'ordine;
+  %li
+    <b>Vista generale</b>, contiene le seguenti informazioni:
+    %ul
+      %li Identificativo del messaggio
+      %li Data di spedizione
+      %li Ora di spedizione
+      %li stato della segnalazione
+  %li Link per il cambio di stato
+  %li <b>Tabella accessi:</b> La tabella contiene tutte le consegne eseguite per il messaggio (leggi il capitoli<a href='/pages/user_manual'>Processo di invio</a> nel manuale utente)
+  %li Tabella accessi, <b>'consegnato a':</b> Il campo contiene il nome degli utenti che hanno ricevuto il messaggio, puo` essere usato come link per accedere al dettaglio dei log dell'utente;
+  %li Tabella accessi, <b>'Lettura messaggio'</b> Contiene la data del primo accesso dell'utente al corpo del messaggio
+  %li Tabella accessi, <b>'Lettura dati'</b> contiene la data del primo accesso ai dati del mittente del messaggio
+
+%p Per ottenere maggiori dettagli sugli accessi esguiti ai messaggi e` possibile accedere ai log specifici degli utenti.
+
+%p Lo <b>stato del messaggio</b> e` una definizione funzionale al comitato anticorruzione e serve solamente ad aitutare il comitato nelle ricerche ed evitare di accedere erroneamente ai messaggi gia` verificati o alle procedure concluse. E` possibile cambiare lo stato del messaggio in qualunque momento scegliendolo tra i seguenti stati:
+%ul
+  %li <b>Nuovo:</b> per identificare i messaggi dove non e` stata iniziata una procedura di verifica
+  %li <b>Attivo:</b> nel caso sia in corso una procedura di verifica
+  %li <b>Chiuso:</b> nel caso sia terminata la procedura di verifica
+
+%p Ogni accesso alle informazioni generali del messaggio e ogni cambiamento di stato dello stesso viene memorizzato nei log ed e` visualizzabile da ogni membro del comitato.
+
+%h5 Visualizzazione del messaggio
+%p La visualizzazione del corpo del messaggio avviene in due passi: prima l'inserimento della chiave RSA e soltanto dopo la visualizzazione del messaggio. La chiave RSA va inserita ad ogni tentativo di accesso al messaggio. Una riga di log viene inserita ad ogni tentativo di accesso, indipendentemente se l'accesso riesce o meno.
+
+.row
+  .large-8.large-centered.columns.text-centered
+    %p.text-center= image_tag 'body_1.png'
+
+%p Cliccando sul link 'Messaggio' si accede al form per l'inserimento della chiave RSA, sara` sufficente inserire la propria password d'accesso alla chiave RSA e premere il tasto 'Invia' per accedere al corpo del messaggio.
+
+.row
+  .large-8.large-centered.columns.text-centered
+    %p.text-center= image_tag 'body_2.png'
+
+%p Il corpo del messaggio e` diviso in tre parti:
+%ol
+  %li Data e ora di invio del messaggio
+  %li Corpo del messaggio
+  %li Tabella allegati (solo se presenti)
+
+%p Per scaricare gli allegati e` sufficante cliccare sull'icona ' #{fa_icon('download')} '. Attenzione! gli allegati sul server sono conservati crittati con codifica AES e viene decrittata una copia su ram al momento del della richiesta di download. E` compito e responsabilita` dei membri del comitato scegliere se salvare o meno gli allegati sul proprio computer e definire metodi adeguati di sicurezza.
+
+%p Ogni accesso al corpo di un messaggo viene registrato nei log ed e` visibile da tutti i membri del comitato.
+
+%h5 Visualizzazione dei dati del mittente
+%p L'accesso ai dati del mittente puo` essere fatto unicamente su richiesta delle forze dell'ordine ed in accordo con tutto il comitato! La procedura di accesso ai dati del mittente inizia cliccando sul link 'Dati mittente' presente nella pagina dei dati generali del massaffio e consiste in tre passi:
+
+.row
+  .large-8.large-centered.columns.text-centered
+    %p.text-center= image_tag 'detail_1.png'
+
+%ol
+  %li Inserimento della motivazione nel campo note
+  %li Inserimento della propria password di accesso alla chiave privata RSA
+  %li Conferma ed invio della richiesta
+
+%p Al momento dell'accesso ai dati dell'utente viene inviata una email informativa a tutti i membri del comitato contenente il link al messaggio, i dati dell'utente richiedente e la motivazione inserita.
+%p Ogni accesso ai dati del mittente viene registrato nei log ed e` visibile da tutti i membri del comitato.
+
+.row
+  .large-8.large-centered.columns.text-centered
+    %p.text-center= image_tag 'detail_2.png'
+
+%p La pagina dei dati del mittente consiste in una riga contenente: Nome utente, email dell'utente, data ed ora di invio.
+
+%p Per ulteriori informiazioni e` possibile consultare il <a href='/pages/user_manual'>Manuale utente</a>, il <a href='http://localhost:3000/pages/glossary'>Glossario</a> con approfondimenti sui termini tecnici, visualizzare il <a html='https://github.com/isprambiente/whistle.i'>codice sorgente</a> e partecipare allo sviluppo del progetto all'indirizzo <a html='https://github.com/isprambiente/whistle.i'>https://github.com/isprambiente/whistle.i</a>.

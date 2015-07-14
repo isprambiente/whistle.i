@@ -1,0 +1,10 @@
+%nav.breadcrumbs
+  = link_to fa_icon('cog', text: t('title')), root_path
+  - case controller.action_name 
+  - when 'new'
+    = link_to fa_icon('plus', text: t('message.new.title')), '#'
+  - when 'report'
+    = link_to fa_icon('plus', text: t('message.report.title')), '#'
+  - else
+    = link_to fa_icon('cogs', text: t('message.index.title')), messages_path
+    = link_to fa_icon('arrows-alt', text: t('message.show.title')), @message if controller.action_name == 'show'
