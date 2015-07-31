@@ -12,12 +12,3 @@ Il programma Wistle.I nasce dall'esigenza del Comitato Anticorruzione dell'Istit
 
 \* In alternativa al server CAS e` possibile utilizzare altri sistemi di autenticazione come ldap
 
-### Installazione
-
-### Configurazione
-
-### Processi
-
-#### - Processo di invio segnalazione
-
-#### - Processo di lettura segnalazione
