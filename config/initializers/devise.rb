@@ -14,7 +14,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'whistle@isprambiente.it'
+  config.mailer_sender = 'whistle@da_sostituire.it'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -277,7 +277,7 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  config.cas_base_url = "https://cas.isprambiente.it"
+  config.cas_base_url = "https://cas.da_sostituire.it"
 
   # you can override these if you need to, but cas_base_url is usually enough
   # config.cas_login_url = "https://cas.myorganization.com/login"
