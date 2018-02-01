@@ -22,6 +22,3 @@
         %td= link_to destination.user.label, destination.user
         %td.readed_at= l(destination.readed_at) if destination.readed?
         %td.detailed_at= l(destination.detailed_at) if destination.detailed?
-
-- content_for :left do
-  = link_to fa_icon('chevron-left', text: 'Segnalazioni'), messages_path, class: 'button small expand'

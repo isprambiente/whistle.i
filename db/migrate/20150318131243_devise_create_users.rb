@@ -1,4 +1,4 @@
-class DeviseCreateUsers < ActiveRecord::Migration
+class DeviseCreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table(:users) do |t|
       ## Database authenticatable
@@ -31,7 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       t.string :username, null: false, default: ''
-      t.string :label, null: false, default: ''
+      t.string :label
       t.jsonb :metadata
       t.boolean :committee, null: false, default: false
       t.text :pub, null: false, default: ''

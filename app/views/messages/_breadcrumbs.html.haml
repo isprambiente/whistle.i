@@ -1,10 +1,11 @@
-%nav.breadcrumbs
-  = link_to fa_icon('cog', text: t('title')), root_path
-  - case controller.action_name 
-  - when 'new'
-    = link_to fa_icon('plus', text: t('message.new.title')), '#'
-  - when 'report'
-    = link_to fa_icon('plus', text: t('message.report.title')), '#'
-  - else
-    = link_to fa_icon('cogs', text: t('message.index.title')), messages_path
-    = link_to fa_icon('arrows-alt', text: t('message.show.title')), @message if controller.action_name == 'show'
+%nav.breadcrumbs{ aria: {label: 'You are here:'}, role: 'navigation'}
+  %ul.breadcrumbs
+    %li= link_to icon('cog', t('title')), root_path
+    - case controller.action_name 
+    - when 'new'
+      %li= link_to icon('plus', t('message.new.title')), '#'
+    - when 'report'
+      %li= link_to icon('plus', t('message.report.title')), '#'
+    - else
+      %li= link_to icon('cogs', t('message.index.title')), messages_path
+      %li= link_to icon('arrows-alt', t('message.show.title')), @message if controller.action_name == 'show'

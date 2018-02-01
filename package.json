@@ -1,0 +1,10 @@
+{
+  "name": "whistle",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.3",
+    "@fortawesome/fontawesome-free-solid": "^5.0.6",
+    "foundation-sites": "^6.4.4-rc1",
+    "trix": "^0.11.1"
+  }
+}

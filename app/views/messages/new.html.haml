@@ -1,9 +1,13 @@
-%h4.text-center= t 'message.new.title'
-= simple_form_for @message, url: messages_path, method: :post, html: {multipart: true} do |f|
-  .panel
-    = f.input :body, as: :text, input_html: {class: 'tinymce'}
-    %br
-    %h6.text-center= link_to fa_icon('plus', text: t('attachment.new.title')), '#', id: 'add-attachemnt'
-    = f.simple_fields_for :attachments_attributes do |attachment|
-      #attachments.row
-  .text-center= f.button :button, fa_icon('envelope', text: 'Invia segnalazione'), class: 'medium radius success'
+.grid-x.grid-padding-x
+  %h4.text-center.cell= t 'message.new.title'
+  .cell
+    = form_with model: @message, multipart: true, local: true do |f|
+      = f.hidden_field :body, id: 'bodyMessage'
+      %trix-editor{input: 'bodyMessage'}
+    
+      #files-box
+        %h6= icon 'paperclip', 'Allegati'
+        #new-message-files.grid-x.grid-padding-x
+        = link_to icon('plus', t('attachment.new.title')), '#', id: 'add-attachemnt'
+    
+      .text-center= f.button icon('envelope', 'Invia segnalazione'), class: 'success button'

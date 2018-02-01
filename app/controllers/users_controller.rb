@@ -1,6 +1,7 @@
 # This controller manage the users rights
 # * only the committee can access here
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :committee_required!
   before_action :set_user, except: [:index, :list, :add_key]
 

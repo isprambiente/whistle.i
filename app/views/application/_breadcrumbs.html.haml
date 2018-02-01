@@ -1,2 +1,3 @@
-%nav.breadcrumbs
-  = link_to fa_icon('cog', text: t('title')), root_path
+%nav.breadcrumbs{ aria: {label: 'You are here:'}, role: 'navigation'}
+  %ul.breadcrumbs
+    %li= link_to icon('cog', t('title')), root_path

@@ -3,7 +3,7 @@
   %li Segnalazione del <strong>#{l @message.created_at.to_date}</strong>
   %li Segnalazione eseguita alle <strong>#{l @message.created_at.to_time}</strong>
   %li
-    Stato segnalazione: <strong class='fa-#{@message.status}'>#{fa_icon 'flag', text: t(@message.status, scope: 'message.status')}</strong>
+    Stato segnalazione: <strong class='fa-#{@message.status}'>#{icon 'flag', t(@message.status, scope: 'message.status')}</strong>
     - if @message.status == 'message_active'
       .right
         Aggiorna stato:

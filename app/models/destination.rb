@@ -6,8 +6,10 @@ class Destination < ActiveRecord::Base
   belongs_to :message
   has_many :attachments
   accepts_nested_attributes_for :attachments, reject_if: :all_blank
-  attr_encrypted :body, key: proc { |d| d.key }
-  attr_encrypted :detail, key: proc { |d| d.key }
+  attr_encrypted :body, key: :key, allow_empty_value: true
+  attr_encrypted :detail, key: :key, allow_empty_value: true
+
+  #before_validation :add_key, on: :create
 
   validates :user, presence: true
   validates :body, presence: true
@@ -18,14 +20,22 @@ class Destination < ActiveRecord::Base
   # set the RSA password for decrypt the key
   def password=(var)
     @password = var
-    @key = OpenSSL::PKey::RSA.new(user.priv, @password).private_decrypt(encrypted_key)
-    @password
+    @key = OpenSSL::PKey::RSA.new(user.priv, @password).private_decrypt(Base64.decode64(encrypted_key))
+    return @password
   end
 
   # Return the a new AES key if encrypted_key is blank else try to decrypt the AES key
   def key
-    @key = SecureRandom.base64(128).to_s if @key.blank?
-    self.encrypted_key = OpenSSL::PKey::RSA.new(user.pub).public_encrypt(@key) if encrypted_key.blank?
+    @key = SecureRandom.random_bytes(32).to_s if @key.blank?
+    self.encrypted_key = Base64.encode64(OpenSSL::PKey::RSA.new(user.pub).public_encrypt(@key)) if encrypted_key.blank?
     @key
+  end
+
+  private
+
+  def add_key
+    self.encrypted_body_iv = SecureRandom.random_bytes(12)
+    self.encrypted_detail_iv = SecureRandom.random_bytes(12)
+    @key = SecureRandom.random_bytes(32).to_s
   end
 end

@@ -1,0 +1,20 @@
+#footer-menu.grid-container
+  .grid-x.grid-padding-x
+  .grid-x.grid-padding-x{data: {equalizer: true, equalize_on: "medium"} }
+    .medium-4.cell{data: {equalizer_watch: true} }
+      %h6 SERVIZI PUBBLICI
+      %ul.menu.vertical
+        %li= link_to icon('external-link-alt',"ISPRA"), 'http://www.isprambiente.it', target: '_blank'
+        %li= link_to icon('external-link-alt',"URP"), 'http://www.isprambiente.gov.it/it/servizi-del-sito/urp', target: '_blank'
+    .medium-4.cell{data: {equalizer_watch: true} }
+      %h6 SERVIZI INTRANET
+      %ul.menu.vertical
+        %li= link_to icon('external-link-alt','Intranet'), 'http://intranet.isprambiente.gov.it', target: '_blank'
+        %li= link_to icon('external-link-alt',"Rubrica"), '"http://intranet.isprambi…te.it/users/addressbook"', target: '_blank'
+        %li= link_to icon('external-link-alt',"Assistenza"), 'http://intranet.isprambiente.it/giri/list', target: '_blank'
+    .large-4.medium-4.cell{data: {equalizer_watch: true} }
+      %h6 NEWS
+      %ul.menu.vertical
+
+#copy
+  %p.text-center #{icon 'copyright'} #{link_to 'ISPRA', 'http://www.isprambiente.gov.it'} Istituto Superiore per la Protezione e la Ricerca Ambientale - #{icon 'cogs' } Sviluppato da #{ link_to 'AGP-INF', 'http://intranet.isprambiente.it'}

@@ -2,6 +2,7 @@
 # * standard user can access only to :new and :create action
 # * the committee can access everywhere
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :committee_required!, except: [:new, :create, :report]
   before_action :set_prerequisite, except: [:index, :list, :new, :create, :report]
 
@@ -85,7 +86,7 @@ class MessagesController < ApplicationController
   def create
     @title = 'Nuova segnalazione'
     @message = Message.new(message_params)
-    @message.detail = [current_user.label, current_user.email, current_user.username, Time.zone.now]
+    @message.detail = [current_user.label, current_user.email, current_user.username, Time.zone.now].join(';')
     if @message.save
       WhistleMailer.new_message.deliver_later
       #redirect_to root_path, notice: I18n.t('flash.message.create.notice')

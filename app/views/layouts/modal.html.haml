@@ -14,9 +14,9 @@
           - unless @menu.blank?
             - @menu.compact.each do |menu|
               %li.divider 
-              %li= link_to fa_icon(menu[:fa], text: menu[:text]), menu[:to], remote: true
+              %li= link_to icon(menu[:fa], menu[:text]), menu[:to], remote: true
           %li.divider
-          %li= link_to fa_icon('times'), '#', class: 'close-reveal-modal'
+          %li= link_to icon('times'), '#', class: 'close-reveal-modal'
     #modal-body.row
       .large-12.columns= yield
     .javascript

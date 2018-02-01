@@ -1,0 +1,80 @@
+#logos
+  clear: both
+  padding: 0px 14px
+  @include breakpoint(medium down)
+    padding: 0px 6px 0px 0px
+  #logo1
+    float: left
+    width: 80%
+  #logo2
+    float: right
+    width: 20%
+
+
+nav.top-bar
+  background: scale-color($black, $lightness: 14%)
+  ul.menu
+    background: transparent
+    li
+      a, button
+        color: $white
+  ul#title.menu
+    li
+      margin-right: 1px
+      a,button
+        background: $title-color
+        font-weight: bold
+        font-size: 130%
+      a
+        padding-left: 2rem
+        padding-right: 2rem
+      button
+        padding: 11px 15px 10px 15px
+        min-height: 43px
+        min-width: 43px
+      a:hover, button:hover
+        background: scale-color($title-color, $lightness: -15%)
+  .top-bar-right
+    ul.menu
+      li
+        a
+          border-left: 1px solid scale-color($black, $lightness: 28%)
+        a:hover
+          background: scale-color($black, $lightness: 28%)
+
+.turbolinks-progress-bar
+  height: 5px
+  background-color: $alert-color
+
+section#alert
+  position: fixed
+  bottom: 0px
+  left: 0px
+  width: 100%
+  font-size: 130%
+  z-index: 9999
+  .callout
+    margin: 0px
+    padding: 5px 37px 5px 15px
+    min-height: 30px
+    color: #fff
+    text-align: center
+    font-weight: bold
+    &.warning
+      background: #80191e
+    &.success
+      background: #0a8136
+    button.close-button
+      top: 0px
+      color: #fff
+    span.float-left.fa
+      padding-top: 5px
+
+#offCanvas
+  ul.menu
+    padding-top: 2.5rem
+    li
+      a
+        color: $white
+      a:hover
+        background: scale-color($black, $lightness: 4%)

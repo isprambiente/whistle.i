@@ -25,7 +25,11 @@ class Message < ActiveRecord::Base
   # popolate
   def add_data
     self.year = Time.zone.now.year
-    self.destinations_attributes = User.committee.map { |user| destination_data(user) }
+    self.destinations_attributes = committee_data
+  end
+
+  def committee_data
+    User.committee.map { |user| destination_data(user) }
   end
 
   # generate the destination data

@@ -1,11 +1,13 @@
 it:
   title: Whistle.I
+  name: ISPRA
 
   help:
     book: Manuali
     user: Manuale utente
     committee: Manuale comitato
-    giri: Richiedi assistenza
+    name: Richiedi assistenza
+    url: https://www.isprambiente.it
     changelog: Changelog
     glossary: Glossario
 
@@ -37,7 +39,7 @@ it:
   attachment:
     title: Allegati
     new:
-      title: Aggiungi nuovo allegato
+      title: Aggiungi altri allegati
 
   log:
     user_status: "l`utente %{author} ha reso %{user} %{status}"

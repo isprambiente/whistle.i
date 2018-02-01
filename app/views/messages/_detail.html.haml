@@ -7,10 +7,9 @@
     %br
     <strong>AVVISO</strong>: Una email di segnalazione viene inviata ad ogni tentativo di accesso.
   %br
-
-  = simple_form_for @destination, url: detail_message_path(@message), method: :post do |f|
+  = form_with model: @destination, url: detail_message_path(@message), method: :post, local: true do |f|
     .row
-      .large-12.columns= f.input :note, as: :text, input_html: {class: 'tinymce'}
+      .large-12.columns= f.text_field :note, class: 'tinymce'
       %hr
-      .medium-9.small-10.columns= f.input_field :password, placeholder: 'Chiave segreta'
-      .medium-3.small-2.columns= f.button :button, fa_icon('share', text: 'invia'), class: 'postfix', data: {confirm: 'Attenzione confermi l\'accesso di dati?'}
+      .medium-9.small-10.columns= f.password_field :password, placeholder: 'Chiave segreta'
+      .medium-3.small-2.columns= f.button icon('share','invia'), class: 'postfix', data: {confirm: 'Attenzione confermi l\'accesso di dati?'}

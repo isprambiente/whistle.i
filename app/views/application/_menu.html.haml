@@ -1,0 +1,17 @@
+<button class="close-button" aria-label="Close menu" type="button" data-close><span aria-hidden="true">&times;</span></button>
+%ul.menu.vertical
+  %li= link_to( icon('list', 'Stato richieste'), report_path)
+  - if current_user.committee?
+    %li= link_to( icon('cogs', t('message.index.title')), messages_path)
+    %li= link_to( icon('cogs', t('message.statistics.title')), messages_path)
+    %li= link_to( icon('cogs', t('user.index.title')), users_path)
+  %li= link_to icon('book', t('user', scope: 'help')), page_path('user_manual')
+  %li= link_to icon('book', t('committee', scope: 'help')), page_path('committee_manual')
+  %li= link_to icon('book', t('glossary', scope: 'help')), page_path('glossary')
+  %li= link_to icon("bug", t('help.giri')) , t('help.url'), :target => "_blank", class: 'alert'
+  %li= link_to icon('code', t('changelog', scope: 'help')), page_path('changelog')
+  - if current_user.committee?
+    %li= link_to icon('edit', current_user.label), current_user
+  -else
+    %li= link_to current_user.label, root_path
+  %li= link_to icon('sign-out-alt', 'Logout'), destroy_user_session_path, method: :delete
