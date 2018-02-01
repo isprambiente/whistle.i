@@ -1,13 +1,13 @@
 it:
   title: Whistle.I
-  name: ISPRA
+  name: DA CAMBIARE
 
   help:
     book: Manuali
     user: Manuale utente
     committee: Manuale comitato
     name: Richiedi assistenza
-    url: https://www.isprambiente.it
+    url: https://www.da_cambiare.it
     changelog: Changelog
     glossary: Glossario
 
